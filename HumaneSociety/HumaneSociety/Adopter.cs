@@ -20,10 +20,17 @@ namespace HumaneSociety
         public Adopter adopter;
         List<Animal> searchedAnimals;
 
+        public object First_Time_Owner { get; private set; }
+        public object FirstTimeOwner { get; private set; }
+        public object Wallet { get; private set; }
+        public bool Have_Cats { get; private set; }
+        public bool Have_Kids { get; private set; }
+        public bool Have_Dogs { get; private set; }
+        public string Name { get; private set; }
 
         public Adopter()
         {
-            wallet = 400.00;
+            double wallet = 400.00;
             searchedAnimals = new List<Animal>();
 
         }
@@ -85,7 +92,7 @@ namespace HumaneSociety
             Console.WriteLine("Do you have children in your household?");
             string yesOrNo = Console.ReadLine();
             yesOrNo = CheckYesOrNo(yesOrNo);
-            if (hasKids == "yes")
+            if (yesOrNo == "yes")
             {
                 hasKids = true;
             }
@@ -100,7 +107,7 @@ namespace HumaneSociety
             Console.WriteLine("Is there any animals you own in your household?");
             string yesOrNo = Console.ReadLine();
             yesOrNo = CheckYesOrNo(yesOrNo);
-            if (hasOtherAnimals == "yes")
+            if (yesOrNo == "yes")
             {
                 hasOtherAnimals = true;
 
@@ -116,7 +123,7 @@ namespace HumaneSociety
             Console.WriteLine("Is this your first time owning a pet?");
             string yesOrNo = Console.ReadLine();
             yesOrNo = CheckYesOrNo(yesOrNo);
-            if (firstTimeOwner == "yes")
+            if (yesOrNo == "yes")
             {
                 firstTimeOwner = true;
             }
@@ -166,9 +173,46 @@ namespace HumaneSociety
 
         }
 
+        private Animal ChooseToSearchAgain(List<Animal> searchedAnimals)
+        {
+            throw new NotImplementedException();
+        }
 
+        private void DisplaySearchedAnimals(List<Animal> searchedAnimals)
+        {
+            throw new NotImplementedException();
+        }
 
+        private string CheckSearch(string userSearchInput)
+        {
+            throw new NotImplementedException();
+        }
 
+        private void SearchToTakePlace(List<Animal> possiblePets, string userSearchInput)
+        {
+            List<Animal> searchedAnimals = new List<Animal>();
+            switch (userSearchInput)
+            {
+                case "Size":
+                    searchedAnimals = searchBySize(possiblePets);
+                    return searchedAnimals;
+                case "Type":
+                    searchedAnimals = searchByType(possiblePets);
+                    return searchedAnimals;
+                default:
+                    break;
+            }
+        }
+
+        private List<Animal> searchByType(List<Animal> possiblePets)
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<Animal> searchBySize(List<Animal> possiblePets)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
