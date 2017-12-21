@@ -9,6 +9,7 @@ namespace HumaneSociety
 {
     class Adopter
     {
+        
         public double wallet;
         string name;
         int age;
@@ -165,10 +166,10 @@ namespace HumaneSociety
             return pet;
 
         }
-
-
-
-
+        
     }
 
 }
+
+
+// 1097151

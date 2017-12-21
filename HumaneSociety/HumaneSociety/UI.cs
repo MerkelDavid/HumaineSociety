@@ -16,6 +16,12 @@ namespace HumaneSociety
             {
                 empPassword = "PawPrint22";
             }
+
+            public void StartHumaneSociety()
+            {
+                Welcome();
+                CustEmployeeSwitch();
+            }
             public string Welcome()
             {
                 Console.WriteLine("Welcome to Pawlicious Pet Palace, the Humane Society that can meet all of your needs!");

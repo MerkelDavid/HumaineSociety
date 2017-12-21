@@ -8,7 +8,7 @@ namespace HumaneSociety
 {
     class Employee
     {
-
+        
         StoreCashBox storeCashBox;
         Pet pet;
         Adopter adopter;
@@ -72,7 +72,7 @@ namespace HumaneSociety
         }
 
         
-
+    
         
     }
 }
