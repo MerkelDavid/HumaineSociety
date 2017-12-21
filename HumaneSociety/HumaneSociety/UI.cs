@@ -12,6 +12,8 @@ namespace HumaneSociety
         private string password;
         private string empPassword;
         private string employeeChoice;
+        Employee employee;
+        Pet pet;
 
         public UI()
         {
@@ -46,7 +48,7 @@ namespace HumaneSociety
             catch (Exception)
             {
                 Console.WriteLine("That was not an option, try again. Check caps lock as all user input is case sensitive.");
-                // Collection of beginning functions ex. Welcome(); CustEmployeeSwitch(); ect...               
+                StartHumaneSociety();            
             }
         }
 
@@ -69,7 +71,7 @@ namespace HumaneSociety
             {
                 if (password == empPassword)
                 {
-                    //EmployeePath();
+                    EmployeePath();
                 }
 
             }
@@ -84,16 +86,35 @@ namespace HumaneSociety
         public string EmployeeMenu()
         {
             Console.WriteLine("Employee options, please enter the cooresponding number");
-            Console.WriteLine("1. Check if animal has its shots.");
+            Console.WriteLine("1. Check to see if animal has its shots.");
             Console.WriteLine("2. Check the type and amount of food needed for pet.");
             Console.WriteLine("3. Set status of animal to 'adopted'");           
             Console.WriteLine("4. Take payment for adoption of pet.");
             return employeeChoice = Console.ReadLine();
         }
 
-        
+        //public void EmployeeChoicePath()
+        //{
+        //    if(employeeChoice == "1")
+        //    {
+        //        employee.CheckShots(animal);
+        //    }
+        //    else if (employeeChoice == "2")
+        //    {
+        //        employee.GetAnimalFood(animal);
+        //    }
+        //    else if (employeeChoice == "3")
+        //    {
+        //        employee.SetStatusToAdopted(animal);
+        //    }
+        //    else if (employeeChoice == "4")
+        //    {
+        //        employee.TakePaymentFromCust(pet.price);
+        //    }
 
-        public
+        //}
+
+        
         
         
     }
