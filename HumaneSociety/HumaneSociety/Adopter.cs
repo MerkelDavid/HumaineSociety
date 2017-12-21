@@ -9,7 +9,7 @@ namespace HumaneSociety
 {
     class Adopter
     {
-        public double wallet;
+        decimal wallet = 0;
         string name;
         int age;
         bool hasDogs;
@@ -205,13 +205,81 @@ namespace HumaneSociety
 
         private List<Animal> searchByType(List<Animal> possiblePets)
         {
-            throw new NotImplementedException();
+            List<Animal> searchedAnimals = new List<Animal>();
+            string typeOptionChosen;
+            Console.WriteLine("What animal would you like to look for today? You have the choice of a dog, cat, ");
+            typeOptionChosen = Console.ReadLine().ToLower();
+            typeOptionChosen = CheckTypeChoice(typeOptionChosen);
+            foreach(var pet in possiblePets)
+            {
+                if(pet.Animal1 == typeOptionChosen)
+                {
+                    searchedAnmals.Add(pet);
+                }
+            }
+            CheckCount(searchedAnimals);
+            return searchedAnimals;
+
         }
 
         private List<Animal> searchBySize(List<Animal> possiblePets)
         {
-            throw new NotImplementedException();
+            List<Animal> searchedAnimals = new List<Animal>();
+            string typeOptionChosen;
+            Console.WriteLine("Khat size would you like your animal to be> We have small, medium, and large");
+            typeOptionChosen = Console.ReadLine().ToLower();
+            typeOptionChosen = CheckSizeChoice(typeOptionChosen);
+            foreach (var pet in possiblePets)
+            {
+                if (pet.Animal_Size == typeOptionChosen)
+                {
+                    searchedAnimals.Add(pet);
+                }
+            }
+            CheckCount(searchedAnimals);
+            return searchedAnimals;
+        }
+        private string CheckTypeChoice(string typeOptionChosen)
+        {
+            while(true)
+            {
+                if(typeOptionChosen == "dog" || typeOptionChosen == "cat")
+                {
+                    return typeOptionChosen;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong input. Please try again. You have the option for either a cat or a dog.");
+                    typeOptionChosen = Console.ReadLine().ToLower();
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 
-}
+
