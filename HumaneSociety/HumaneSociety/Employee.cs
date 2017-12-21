@@ -8,17 +8,74 @@ namespace HumaneSociety
 {
     class Employee
     {
+        
+        StoreCashBox storeCashBox;
+        Pet pet;
+        Adopter adopter;
 
-        // collect money
+        //public bool CheckShots(animal)
+        //{
+        //    if (animalShot == true)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
-        //check shot status of animal
+        //public bool GiveShot(animal)
+        //{
+        //    if (animalShot == false)
+        //    {
+        //        return animalShot == true;
+        //    }
+        //    return false;
+        //}
 
-        // give animal its shot
+        //public bool SetStatusToAdopted(animal)
+        //{
+        //    if (adopted == false)
+        //    {
+        //        return adopted = true;
+        //    }
+        //    return false;
+        //}
 
-        //set status of animal to "adopted"
+        //public void GetAnimalRoom(animal)
+        //{
+        //    Console.WriteLine(animal.room);
+        //}
 
-        // check room of an animal
+        //public void GetAnimalFood(animal, animal.food)
+        //{
+        //    Console.WriteLine("This {0} eats {1} per week");
+        //}
 
-        // check animals food info. "amout(per week), what type
+        public double AcceptPayment()
+        {
+            return storeCashBox.storeMoney = pet.price + storeCashBox.storeMoney;
+        }
+
+        public double TakePaymentFromCust()
+        {
+            return adopter.wallet = pet.price - adopter.wallet;
+        }
+
+        public bool CheckCustomerWalletForPayment()
+        {
+            if(adopter.wallet > pet.price)
+            {
+                return true;
+            }
+            else if(adopter.wallet < pet.price)
+            {
+                Console.WriteLine("You do not have enough money for this pet. Please think about the pet, its food, and any other 'home' accomadations it might need!");
+                return false;
+            }
+            return false;
+        }
+
+        
+    
+        
     }
 }

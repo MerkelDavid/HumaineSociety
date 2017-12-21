@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumaneSociety
 {
-    class Program
+    class CSVReader
     {
-        static void Main(string[] args)
-        {
-            UI ui = new UI();
-            ui.StartHumaneSociety();
-        }
     }
 }

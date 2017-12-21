@@ -8,5 +8,12 @@ namespace HumaneSociety
 {
     class StoreCashBox
     {
+        public double storeMoney;
+
+        public StoreCashBox()
+        {
+            storeMoney = 2000.00;
+        }
+            
     }
 }
