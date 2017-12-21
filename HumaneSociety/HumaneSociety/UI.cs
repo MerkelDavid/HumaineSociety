@@ -18,7 +18,7 @@ namespace HumaneSociety
             }
             public string Welcome()
             {
-                Console.WriteLine("Welcome to Pawlicious Puppy Love, the Humane Society that can meet all of your needs!");
+                Console.WriteLine("Welcome to Pawlicious Pet Palace, the Humane Society that can meet all of your needs!");
                 Console.WriteLine("Are you a customer or an employee?");
                 return welcomeChoice = Console.ReadLine();
             }
@@ -57,10 +57,20 @@ namespace HumaneSociety
 
             public void CheckPassword()
             {
-                if (password == empPassword)
+                try
                 {
-                    //EmployeePath();
+                    if (password == empPassword)
+                    {
+                        //EmployeePath();
+                    }
+
                 }
+                catch (Exception)
+                {
+                Console.WriteLine("The password you entered is incorrect, please try again and remember case sensitivity.");
+                PasswordPath();                
+                }
+                
             }
 
 

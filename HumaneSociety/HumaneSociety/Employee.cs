@@ -8,17 +8,38 @@ namespace HumaneSociety
 {
     class Employee
     {
+        
 
-        // collect money
+        //public bool CheckShots(animal)
+        //{
+        //    if(animalShot == true)
+        //    {
+        //        return true;
+        //    }
+        //}
 
-        //check shot status of animal
+        //public bool GiveShot(animal)
+        //{
+        //    if(animalShot == false)
+        //    {
+        //        return animalShot == true;
+        //    }
+        //}
 
-        // give animal its shot
+        //public bool SetStatusToAdopted(animal)
+        //{
+        //    if(adopted == false)
+        //    {
+        //        return adopted = true;
+        //    }
+        //}
 
         //set status of animal to "adopted"
 
         // check room of an animal
 
         // check animals food info. "amout(per week), what type
+
+        // collect money
     }
 }

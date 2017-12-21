@@ -8,5 +8,14 @@ namespace HumaneSociety
 {
     class Pet
     {
+        public bool adopted;
+        public string room;
+        public bool shot;
+
+
+        public Pet()
+        {
+            adopted = false;
+        }
     }
 }
