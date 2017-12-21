@@ -65,6 +65,7 @@ namespace HumaneSociety
             }
             else if(adopter.wallet < pet.price)
             {
+                Console.WriteLine("You do not have enough money for this pet. Please think about the pet, its food, and any other 'home' accomadations it might need!");
                 return false;
             }
             return false;
@@ -72,6 +73,6 @@ namespace HumaneSociety
 
         
 
-        // collect money
+        
     }
 }
