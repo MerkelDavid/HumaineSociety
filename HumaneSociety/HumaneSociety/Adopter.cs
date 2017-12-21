@@ -21,7 +21,6 @@ namespace HumaneSociety
         List<Animal> searchedAnimals;
 
         public object First_Time_Owner { get; private set; }
-        public object FirstTimeOwner { get; private set; }
         public object Wallet { get; private set; }
         public bool Have_Cats { get; private set; }
         public bool Have_Kids { get; private set; }
@@ -156,7 +155,7 @@ namespace HumaneSociety
             adopter.Have_Dogs = this.hasDogs;
             adopter.Have_Cats = this.hasCats;
             adopter.Have_Kids = this.hasKids;
-            adopter.First_Time_Owner = this.FirstTimeOwner;
+            adopter.First_Time_Owner = this.firstTimeOwner;
             adopter.Wallet = this.Wallet;
         }
 
