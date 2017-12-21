@@ -11,7 +11,7 @@ namespace HumaneSociety
         static void Main(string[] args)
         {
             UI ui = new UI();
-
+            ui.StartHumaneSociety();
            //DB DBConnect = new DB();
            // DBConnect.addTodataBase();
         }

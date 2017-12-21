@@ -13,39 +13,42 @@ namespace HumaneSociety
         Pet pet;
         Adopter adopter;
 
-        //public bool CheckShots(animal)
-        //{
-        //    if(animalShot == true)
-        //    {
-        //        return true;
-        //    }
-        //}
+        public bool CheckShots(animal)
+        {
+            if (animalShot == true)
+            {
+                return true;
+            }
+            return false;
+        }
 
-        //public bool GiveShot(animal)
-        //{
-        //    if(animalShot == false)
-        //    {
-        //        return animalShot == true;
-        //    }
-        //}
+        public bool GiveShot(animal)
+        {
+            if (animalShot == false)
+            {
+                return animalShot == true;
+            }
+            return false;
+        }
 
-        //public bool SetStatusToAdopted(animal)
-        //{
-        //    if(adopted == false)
-        //    {
-        //        return adopted = true;
-        //    }
-        //}
+        public bool SetStatusToAdopted(animal)
+        {
+            if (adopted == false)
+            {
+                return adopted = true;
+            }
+            return false;
+        }
 
-        //public string GetAnimalRoom(animal)
-        //{
-        //    Console.WriteLine(animal.room);            
-        //}
+        public void GetAnimalRoom(animal)
+        {
+            Console.WriteLine(animal.room);
+        }
 
-        //public string GetAnimalFood(animal, animal.food)
-        //{
-        //    Console.WriteLine("This {0} eats {1} per week");
-        //}
+        public void GetAnimalFood(animal, animal.food)
+        {
+            Console.WriteLine("This {0} eats {1} per week");
+        }
 
         public double AcceptPayment()
         {
