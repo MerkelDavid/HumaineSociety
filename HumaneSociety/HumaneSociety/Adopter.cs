@@ -9,6 +9,7 @@ namespace HumaneSociety
 {
     class Adopter
     {
+        /*
         decimal wallet = 0;
         string name;
         int age;
@@ -166,7 +167,7 @@ namespace HumaneSociety
 
         }
 
-
+    */
 
 
     }

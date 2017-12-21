@@ -9,9 +9,13 @@ namespace HumaneSociety
 {
     class DB
     {
-        private SqlConnection seed = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Program files\\MicosoftSQLServer\\MSSQL14.MSSQLSERVER\\MSSQL\\DATA\\HumanSociety.mdf; Integrated Security = True");
+        private SqlConnection seed;
 
-        public void addTodataBase(string name, double profit)
+        public DB()
+        {
+            seed = new SqlConnection("Data Source = DMERKEL; Initial Catalog = HumaneSociety; Integrated Security = True; Pooling = False");
+        }
+        public void addTodataBase()
         {
             seed.Open();
 
@@ -25,7 +29,7 @@ namespace HumaneSociety
             command.Transaction = transaction;
 
             //write sql statment
-            command.CommandText = "INSERT INTO Pets (Name,RoomNumber,vaccinated,type) VALUES ('" + name + "'," + profit + ") ";
+            command.CommandText = "INSERT INTO Pets (Name,RoomNumber,vaccinated,type) VALUES ('Petty Wap',1,0,1) ";
 
             //preparing the SQL statment
             command.ExecuteNonQuery();

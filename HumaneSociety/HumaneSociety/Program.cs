@@ -10,6 +10,8 @@ namespace HumaneSociety
     {
         static void Main(string[] args)
         {
+            DB DBConnection = new HumaneSociety.DB();
+            DBConnection.addTodataBase();
         }
     }
 }
