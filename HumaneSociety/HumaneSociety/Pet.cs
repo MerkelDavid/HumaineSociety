@@ -11,11 +11,11 @@ namespace HumaneSociety
         public bool adopted;
         public string room;
         public bool shot;
-
+        public double price;
 
         public Pet()
         {
-            adopted = false;
+            adopted = false;            
         }
     }
 }

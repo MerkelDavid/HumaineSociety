@@ -9,7 +9,7 @@ namespace HumaneSociety
 {
     class Adopter
     {
-        decimal wallet = 0;
+        public double wallet;
         string name;
         int age;
         bool hasDogs;

@@ -8,7 +8,10 @@ namespace HumaneSociety
 {
     class Employee
     {
-        
+
+        StoreCashBox storeCashBox;
+        Pet pet;
+        Adopter adopter;
 
         //public bool CheckShots(animal)
         //{
@@ -34,11 +37,40 @@ namespace HumaneSociety
         //    }
         //}
 
-        //set status of animal to "adopted"
+        //public string GetAnimalRoom(animal)
+        //{
+        //    Console.WriteLine(animal.room);            
+        //}
 
-        // check room of an animal
+        //public string GetAnimalFood(animal, animal.food)
+        //{
+        //    Console.WriteLine("This {0} eats {1} per week");
+        //}
 
-        // check animals food info. "amout(per week), what type
+        public double AcceptPayment()
+        {
+            return storeCashBox.storeMoney = pet.price + storeCashBox.storeMoney;
+        }
+
+        public double TakePaymentFromCust()
+        {
+            return adopter.wallet = pet.price - adopter.wallet;
+        }
+
+        public bool CheckCustomerWalletForPayment()
+        {
+            if(adopter.wallet > pet.price)
+            {
+                return true;
+            }
+            else if(adopter.wallet < pet.price)
+            {
+                return false;
+            }
+            return false;
+        }
+
+        
 
         // collect money
     }
