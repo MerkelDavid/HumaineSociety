@@ -34,6 +34,7 @@ namespace HumaneSociety
             searchedAnimals = new List<Animal>();
 
         }
+
         public void AskForName()
         {
             Console.WriteLine("What is your name?");
@@ -72,6 +73,7 @@ namespace HumaneSociety
             {
                 hasDogs = false;
             }
+            return CheckYesOrNo;
         }
         public void GetCatInformation()
         {
@@ -429,3 +431,5 @@ namespace HumaneSociety
         }
     }
 }
+
+    
