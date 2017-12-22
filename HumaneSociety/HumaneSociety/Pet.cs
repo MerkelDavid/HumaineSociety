@@ -12,10 +12,21 @@ namespace HumaneSociety
         public string room;
         public bool shot;
         public double price;
+        public string name;
+        public int Id;
+        public string food;
 
-        public Pet()
+        public Pet(bool adopted, string room, bool shot, double price, string name, int Id, string food)
         {
-            adopted = false;            
+            this.adopted = adopted;
+            this.room = room;
+            this.shot = shot;
+            this.price = price;
+            this.name = name;
+            this.Id = Id;
+            this.food = food; 
         }
+
+
     }
 }

@@ -13,49 +13,49 @@ namespace HumaneSociety
         Pet pet;
         Adopter adopter;
 
-        //public bool CheckShots(animal)
-        //{
-        //    if (animalShot == true)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        public bool CheckShots(Pet animal)
+        {
+            if (animal.shot == true)
+            {
+                return true;
+            }
+            return false;
+        }
 
-        //public bool GiveShot(animal)
-        //{
-        //    if (animalShot == false)
-        //    {
-        //        return animalShot == true;
-        //    }
-        //    return false;
-        //}
+        public bool GiveShot(bool shot)
+        {
+            if (shot == false)
+            {
+                return shot == true;
+            }
+            return false;
+        }
 
-        //public bool SetStatusToAdopted(animal)
-        //{
-        //    if (adopted == false)
-        //    {
-        //        return adopted = true;
-        //    }
-        //    return false;
-        //}
+        public bool SetStatusToAdopted(bool adopted)
+        {
+            if (adopted == false)
+            {
+                return adopted = true;
+            }
+            return false;
+        }
 
-        //public void GetAnimalRoom(animal)
-        //{
-        //    Console.WriteLine(animal.room);
-        //}
+        public void GetAnimalRoom(string room)
+        {
+            Console.WriteLine(room);
+        }
 
-        //public void GetAnimalFood(animal, animal.food)
-        //{
-        //    Console.WriteLine("This {0} eats {1} per week");
-        //}
+        public void GetAnimalFood(string food)
+        {
+            Console.WriteLine(food);
+        }
 
         public double AcceptPayment()
         {
             return storeCashBox.storeMoney = pet.price + storeCashBox.storeMoney;
         }
 
-        public double TakePaymentFromCust()
+        public double TakePaymentFromCust(double price)
         {
             return adopter.wallet = pet.price - adopter.wallet;
         }
