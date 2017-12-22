@@ -15,7 +15,7 @@ namespace HumaneSociety
         {
             seed = new SqlConnection("Data Source = DMERKEL; Initial Catalog = HumaneSociety; Integrated Security = True; Pooling = False");
         }
-        public void addTodataBase()
+        public void AddPetToDB(Pet newPet)
         {
             seed.Open();
 
@@ -29,7 +29,7 @@ namespace HumaneSociety
             command.Transaction = transaction;
 
             //write sql statment
-            command.CommandText = "INSERT INTO Pets (Name,RoomNumber,vaccinated,type) VALUES ('Petty Wap',1,0,1) ";
+            command.CommandText = "INSERT INTO Pets (Name,RoomNumber,vaccinated,type) VALUES ('"+Pet.name+"',"+Pet.roomNumber+","+Pet.vaccinated+",'"+Pet.type+"') ";
 
             //preparing the SQL statment
             command.ExecuteNonQuery();
@@ -39,17 +39,16 @@ namespace HumaneSociety
 
         }
 
-        public void getHighScores()
+        public List<Pet> GetAvailablePets()
         {
-
+            List<Pet> ListOfPets = new List<HumaneSociety.Pet>();
             seed.Open();
 
             SqlCommand command = new SqlCommand("SELECT TOP 10 name,score FROM Scores ORDER BY score DESC", seed);
             SqlDataReader reader = command.ExecuteReader();
-            Console.WriteLine("HIGH SCORES");
-            Console.WriteLine("-----------");
             while (reader.Read())
             {
+                ListOfPets.Add()
                 Console.WriteLine(reader.GetString(0) + "\t" + reader.GetDouble(1));
             }
             Console.WriteLine("");
