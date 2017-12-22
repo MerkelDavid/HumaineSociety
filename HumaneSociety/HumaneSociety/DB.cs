@@ -44,12 +44,11 @@ namespace HumaneSociety
             List<Pet> ListOfPets = new List<HumaneSociety.Pet>();
             seed.Open();
 
-            SqlCommand command = new SqlCommand("SELECT TOP 10 name,score FROM Scores ORDER BY score DESC", seed);
+            SqlCommand command = new SqlCommand("SELECT * From Pets", seed);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                ListOfPets.Add()
-                Console.WriteLine(reader.GetString(0) + "\t" + reader.GetDouble(1));
+                ListOfPets.Add(new HumaneSociety.Pet(reader.GetSqlInt16(0), reader.GetString(1), reader.GetSqlInt32(2), reader.GetSqlInt32(3), reader.GetSqlInt32(4), reader.GetSqlBoolean(5), reader.GetSqlDouble(6));
             }
             Console.WriteLine("");
 
