@@ -13,7 +13,7 @@ namespace HumaneSociety
 
         public DB()
         {
-            seed = new SqlConnection("Data Source = DMERKEL; Initial Catalog = HumaneSociety; Integrated Security = True; Pooling = False");
+            seed = new SqlConnection("Data Source = DMERKEL; Initial Catalog = HumaneSocietyData; Integrated Security = True; Pooling = False");
         }
         public void AddPetToDB(Pet newPet)
         {
@@ -29,7 +29,7 @@ namespace HumaneSociety
             command.Transaction = transaction;
 
             //write sql statment
-            command.CommandText = "INSERT INTO Pets (Name,RoomNumber,vaccinated,type) VALUES ('"+Pet.name+"',"+Pet.roomNumber+","+Pet.vaccinated+",'"+Pet.type+"') ";
+            command.CommandText = "INSERT INTO Pets (Name,RoomNumber,vaccinated,type) VALUES ('"+newPet.name+"',"+newPet.room+","+newPet.shot+",'"+newPet.type+"') ";
 
             //preparing the SQL statment
             command.ExecuteNonQuery();
@@ -39,18 +39,182 @@ namespace HumaneSociety
 
         }
 
+        public bool SetAdopter(int PetID,int AdopterID)
+        {
+            seed.Open();
+
+            SqlCommand command = seed.CreateCommand();
+            SqlTransaction transaction;
+
+            transaction = seed.BeginTransaction();
+
+            //establishing connection to db
+            command.Connection = seed;
+            command.Transaction = transaction;
+
+            //write sql statment
+            command.CommandText = "UPDATE Adopters SET PetID = "+PetID+" WHERE AdopterID = "+AdopterID ;
+
+            try
+            {
+                //preparing the SQL statment
+                command.ExecuteNonQuery();
+
+                //Executing the statement
+                transaction.Commit();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
+
+
+        public bool SetRoom(int PetID, int roomNumber)
+        {
+            seed.Open();
+
+            SqlCommand command = seed.CreateCommand();
+            SqlTransaction transaction;
+
+            transaction = seed.BeginTransaction();
+
+            //establishing connection to db
+            command.Connection = seed;
+            command.Transaction = transaction;
+
+            //write sql statment
+            command.CommandText = "UPDATE Pets SET RoomNumber = " + roomNumber + " WHERE PetID = " + PetID;
+
+            try
+            {
+                //preparing the SQL statment
+                command.ExecuteNonQuery();
+
+                //Executing the statement
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool SetShots(int PetID)
+        {
+            seed.Open();
+
+            SqlCommand command = seed.CreateCommand();
+            SqlTransaction transaction;
+
+            transaction = seed.BeginTransaction();
+
+            //establishing connection to db
+            command.Connection = seed;
+            command.Transaction = transaction;
+
+            //write sql statment
+            command.CommandText = "UPDATE Pets SET vaccinated = 1 WHERE PetID = " + PetID;
+
+            try
+            {
+                //preparing the SQL statment
+                command.ExecuteNonQuery();
+
+                //Executing the statement
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool SetPrice(int PetID,double newPrice)
+        {
+            seed.Open();
+
+            SqlCommand command = seed.CreateCommand();
+            SqlTransaction transaction;
+
+            transaction = seed.BeginTransaction();
+
+            //establishing connection to db
+            command.Connection = seed;
+            command.Transaction = transaction;
+
+            //write sql statment
+            command.CommandText = "UPDATE Pets SET Price = "+newPrice+" WHERE PetID = " + PetID;
+
+            try
+            {
+                //preparing the SQL statment
+                command.ExecuteNonQuery();
+
+                //Executing the statement
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool SetName(int PetID,string newName)
+        {
+            seed.Open();
+
+            SqlCommand command = seed.CreateCommand();
+            SqlTransaction transaction;
+
+            transaction = seed.BeginTransaction();
+
+            //establishing connection to db
+            command.Connection = seed;
+            command.Transaction = transaction;
+
+            //write sql statment
+            command.CommandText = "UPDATE Pets SET Name = "+newName+" WHERE PetID = " + PetID;
+
+            try
+            {
+                //preparing the SQL statment
+                command.ExecuteNonQuery();
+
+                //Executing the statement
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public List<Pet> GetAvailablePets()
         {
             List<Pet> ListOfPets = new List<HumaneSociety.Pet>();
             seed.Open();
 
-            SqlCommand command = new SqlCommand("SELECT * From Pets", seed);
+            SqlCommand command = new SqlCommand("SELECT * From Pets WHERE AdopterID = null", seed);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                ListOfPets.Add(new HumaneSociety.Pet(reader.GetSqlInt16(0), reader.GetString(1), reader.GetSqlInt32(2), reader.GetSqlInt32(3), reader.GetSqlInt32(4), reader.GetSqlBoolean(5), reader.GetSqlDouble(6));
+                ListOfPets.Add(new HumaneSociety.Pet(Convert.ToInt32(reader.GetSqlInt32(0)),
+                    reader.GetString(1),
+                    Convert.ToInt32(reader.GetSqlInt32(2)),
+                    Convert.ToInt32(reader.GetSqlInt32(3)),
+                    Convert.ToInt32(reader.GetSqlInt32(4)),
+                    Convert.ToBoolean(reader.GetSqlBoolean(5)),
+                    Convert.ToDouble(reader.GetSqlDouble(6))
+                    ));
             }
-            Console.WriteLine("");
+
+            return ListOfPets;
 
         }
 
