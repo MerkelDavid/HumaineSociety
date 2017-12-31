@@ -29,7 +29,7 @@ namespace HumaneSociety
             command.Transaction = transaction;
 
             //write sql statment
-            command.CommandText = "INSERT INTO Pets (Name,RoomNumber,vaccinated,type) VALUES ('"+newPet.name+"',"+newPet.room+","+newPet.shot+",'"+newPet.type+"') ";
+            command.CommandText = "INSERT INTO Pets (Name,RoomNumber,vaccinated,type,vaccinated,price) VALUES ('"+newPet.name+"',"+newPet.room+","+newPet.shot+",'"+newPet.type+"','"+newPet.shot+"','"+newPet.Price+"') ";
 
             //preparing the SQL statment
             command.ExecuteNonQuery();
@@ -39,6 +39,29 @@ namespace HumaneSociety
 
         }
 
+        public void AddTypeToDB(string typeName, int size, string FoodType)
+        {
+            seed.Open();
+
+            SqlCommand command = seed.CreateCommand();
+            SqlTransaction transaction;
+
+            transaction = seed.BeginTransaction();
+
+            //establishing connection to db
+            command.Connection = seed;
+            command.Transaction = transaction;
+
+            //write sql statment
+            command.CommandText = "INSERT INTO types (TypeName,Size,FoodType) Values ('"+typeName+"',"+size+",'"+FoodType+"')";
+
+            //preparing the SQL statment
+            command.ExecuteNonQuery();
+
+            //Executing the statement
+            transaction.Commit();
+
+        }
         public bool SetAdopter(int PetID,int AdopterID)
         {
             seed.Open();
@@ -195,6 +218,7 @@ namespace HumaneSociety
             }
         }
 
+
         public List<Pet> GetAvailablePets()
         {
             List<Pet> ListOfPets = new List<HumaneSociety.Pet>();
@@ -215,6 +239,29 @@ namespace HumaneSociety
             }
 
             return ListOfPets;
+
+        }
+
+        public bool DoesTypeExist(string type)
+        {
+            seed.Open();
+            int tester =0;
+
+            SqlCommand command = new SqlCommand("SELECT * From types WHERE TypeName = '"+type+"'", seed);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                tester = Convert.ToInt32(reader.GetSqlInt32(0));
+            }
+
+            if (tester != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
 

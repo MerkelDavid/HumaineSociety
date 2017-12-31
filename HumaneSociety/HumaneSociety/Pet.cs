@@ -24,7 +24,6 @@ namespace HumaneSociety
         public bool Shot
         {
             get { return shot; }
-            //set { DBConnect.SetShots(id); }
         }
         public double price;
         public double Price
@@ -50,14 +49,22 @@ namespace HumaneSociety
             {
                 return food;
             }
+
         }
         public string type;
         public string Type
         {
             get { return type; }
         }
+        public int size;
+        public string Size
+        {
+            get { if (size == 1) { return "small"; }
+                else if (size == 2) { return "medium"; }
+                else return "large"; }
+        }
 
-        public Pet(int id, string name,int room, int adopter, int type, bool vaccinated,double price)
+        public Pet(int id, string name,int room, int adopter, string type, bool vaccinated,double price)
         {
             if (adopter == 0)
             {
@@ -72,6 +79,7 @@ namespace HumaneSociety
             this.price = price;
             this.name = name;
             this.id = id;
+            this.type = type;
         }
 
         //returns true if the adoption went through
